@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: dirs and files list
+# key: tmpa
+# --
+${1:`(yas-choose-value '("fraxure4" "rhyperior" "linoone" "makuhita" "haunter2" "yamask" "snorunt" "hippopotas" "bellossom" "nuzleaf7" "swalot" "cyndaquil" "bibarel2" "quagsire" "gurdurr" "mienshao5" "aipom" "ambipom" "weavile" "vocarona0"))`}$0

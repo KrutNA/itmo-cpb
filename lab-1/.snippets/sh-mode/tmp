@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: create from $TMP_PATH
+# key: tmp
+# expand-env: ((yas-triggers-in-field 't))
+# --
+${1:$$(yas-choose-value '("touch" "mkdir"))} $TMP_PATH/{${2:file}}

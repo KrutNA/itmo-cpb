@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: find file awk and rm
+# key: awkrm
+# --
+
+awk '/$1/{system("rm -rf " \$0)}' .all
+
+rm tmpd

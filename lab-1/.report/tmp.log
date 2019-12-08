@@ -1,0 +1,107 @@
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/Debian) (preloaded format=xelatex 2019.9.27)  30 SEP 2019 09:51
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**tmp.tex
+(./tmp.tex
+LaTeX2e <2018-12-01>
+(/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2018/09/03 v1.4i Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/size11.clo
+File: size11.clo 2018/09/03 v1.4i Standard LaTeX file (size option)
+)
+\c@part=\count80
+\c@section=\count81
+\c@subsection=\count82
+\c@subsubsection=\count83
+\c@paragraph=\count84
+\c@subparagraph=\count85
+\c@figure=\count86
+\c@table=\count87
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+)
+(/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
+Package: inputenc 2018/08/11 v1.3c Input encoding file
+\inpenc@prehook=\toks14
+\inpenc@posthook=\toks15
+
+
+Package inputenc Warning: inputenc package ignored with utf8 based engines.
+
+) (/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2018/08/11 v2.0j Standard LaTeX package
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/t1enc.def
+File: t1enc.def 2018/08/11 v2.0j Standard LaTeX file
+LaTeX Font Info:    Redeclaring font encoding T1 on input line 48.
+)
+LaTeX Font Info:    Try loading font information for T1+lmr on input line 105.
+
+(/usr/share/texmf/tex/latex/lm/t1lmr.fd
+File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+))
+(/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2018/08/11 v2.0j Standard LaTeX package
+
+(/usr/share/texlive/texmf-dist/tex/latex/cyrillic/t2aenc.def
+File: t2aenc.def 2005/09/27 v1.0i Cyrillic encoding definition file
+)
+LaTeX Font Info:    Try loading font information for T2A+lmr on input line 105.
+
+LaTeX Font Info:    No file T2Almr.fd. on input line 105.
+LaTeX Font Info:    Try loading font information for T2A+cmr on input line 105.
+
+
+(/usr/share/texlive/texmf-dist/tex/latex/cyrillic/t2acmr.fd
+File: t2acmr.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
+)
+
+LaTeX Font Warning: Font shape `T2A/lmr/m/n' undefined
+(Font)              using `T2A/cmr/m/n' instead on input line 105.
+
+) (/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2018/04/16 v5.8 Page Geometry
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks16
+)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2018/09/07 v3.3 Provides the ifpdf switch
+)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifvtex.sty
+Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+)
+(/usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+\Gm@cnth=\count88
+\Gm@cntv=\count89
+\c@Gm@tempcnt=\count90
+\Gm@bindingoffset=\dimen103
+\Gm@wd@mp=\dimen104
+\Gm@odd@mp=\dimen105
+\Gm@even@mp=\dimen106
+\Gm@layoutwidth=\dimen107
+\Gm@layoutheight=\dimen108
+\Gm@layouthoffset=\dimen109
+\Gm@layoutvoffset=\dimen110
+\Gm@dimlist=\toks17
+) (./tmp.aux)
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 1230 strings out of 494120
+ 16089 string characters out of 6167068
+ 75654 words of memory out of 5000000
+ 5216 multiletter control sequences out of 15000+600000
+ 7446 words of font info for 17 fonts, out of 8000000 for 9000
+ 682 hyphenation exceptions out of 8191
+ 23i,1n,20p,274b,75s stack positions out of 5000i,500n,10000p,200000b,80000s
+
+No pages of output.

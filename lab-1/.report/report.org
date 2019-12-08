@@ -1,0 +1,156 @@
+#+LANGUAGE: ru
+#+LATEX: \thispagestyle{empty}
+#+AUTHOR: Крутько Никита
+#+OPTIONS: toc:nil
+#+LATEX: \large
+#+LATEX_HEADER: \setdefaultlanguage{russian} \setotherlanguage{english}
+#+LATEX_HEADER: \setmainfont{Liberation Serif}
+#+LATEX_HEADER: \setsansfont{Liberation Sans}
+#+LATEX_HEADER: \setmonofont[Contextuals=Alternate,Ligatures={TeX}]{Fira Code Regular}
+#+BEGIN_EXPORT latex
+\newfontfamily\lstcomment[Scale=0.6]{Fira Code Regular}
+\newfontfamily\lstbasic[Scale=0.8,Contextuals=Alternate,Ligatures={TeX}]{Fira Code Regular}
+\lstset{
+  frame = shadowbox,
+  commentstyle = \lstcomment\it\small,
+  basicstyle = \lstbasic\small,
+  numberstyle = \lstbasic\tiny,numbers=left,
+  stringstyle = \lstbasic\it\small,
+}
+#+END_EXPORT
+#+BEGIN_CENTER
+*Санкт-Петербургский Национальный Исследовательский*\\
+*Университет Информационных Технологий, Механики и Оптики*\\
+*Факультет Программной Инженерии и Компьютерной Техники*\\
+#+END_CENTER
+#+LATEX: \vspace{1em}
+#+ATTR_LATEX: :width 120pt
+#+ATTR_ORG: :width 120pt
+file:./itmo-logo.png
+#+LATEX: \LARGE
+#+LATEX: \vspace{5em}
+#+BEGIN_CENTER
+*Вариант №-7*\\
+*Лабораторная работа №1*\\
+#+LATEX: \Large
+*по дисциплине*\\
+#+LATEX: \LARGE
+*/'Основы профессиональной деятельности'/*\\
+#+END_CENTER
+#+LATEX: \vspace{11em}
+#+LATEX: \large
+#+LATEX: \begin{flushright}
+*Выполнил:*\\
+*Студент группы P3113*\\
+*/Крутько Никита/ : 242570*\\
+*Преподаватель:*\\
+*/Перминов Илья Валентинович/*\\
+#+LATEX: \end{flushright}
+#+LATEX: \vspace{4em}
+#+LATEX: \large
+#+BEGIN_CENTER
+*Санкт-Петербург 2019 г.*
+#+END_CENTER
+#+LATEX: \pagebreak{}
+#+TOC: headlines 2
+#+LATEX: \vspace{2em}
+* Задание
+1. Create tree hierarchy with directory, files and its contents. Use lab0 as tree root in your home directory and following commands for tree creation: mkdir, echo, cat, touch, ls, pwd, cd, more, cp, rm, rmdir, mv.\\
+2. Set up file and directory permissions chmod, using different approaches.\\
+3. Copy tree parts and create links with cp and ln, as well as with cat and io streams redirection.\\
+4. Using cat, wc, ls, head, tail, echo, sort, grep looks up and filters directory, files and data in it.\\
+5. Remove files using rm and rmdir according following:
+
+* Листинги
+#+LATEX: \small
+#+CAPTION: tree.sh
+#+INCLUDE: ../.scripts/tree.sh src bash
+#+LATEX: \vspace{2em}
+#+CAPTION: setup-files.sh
+#+INCLUDE: ../.scripts/setup-files.sh src bash
+#+LATEX: \vspace{2em}
+#+CAPTION: permissions.sh
+#+INCLUDE: ../.scripts/permissions.sh src bash
+#+LATEX: \vspace{2em}
+#+CAPTION: copy.sh
+#+INCLUDE: ../.scripts/copy.sh src bash
+#+LATEX: \vspace{2em}
+#+CAPTION: filter.sh
+#+INCLUDE: ../.scripts/filter.sh src bash
+#+LATEX: \vspace{2em}
+#+CAPTION: rm.sh
+#+INCLUDE: ../.scripts/rm.sh src bash
+
+* Вывод программы
+#+BEGIN_SRC shell :exports results :results output
+  cat ../.out
+#+END_SRC
+
+#+RESULTS:
+#+begin_example
+wc: ./nuzleaf7/aipom: Отказано в доступе
+wc: ./nuzleaf7/ambipom: Отказано в доступе
+wc: ./nuzleaf7/weavile: Отказано в доступе
+  0 итого
+62 ./fraxure4/quagsire
+644 ./fraxure4/rhyperior/gurdur
+def=7
+NORMAL NONE
+weight=44.8 height=47.0 atk=10
+Тип покемона
+./nuzleaf7/cyndaquil
+./fraxure4/quagsire
+satk=10 sdef=6 spd=11
+#+end_example
+\normalsize
+* Вывод
+Я вспомнил некоторые команды UNIX, а также изучил несколько новых, таких как stat. Также познакомился с AWK и использовал его в своей работе, т.к. с его помощью многие вещи решались довольно красиво. По возможности старался писать хороший код, на который как минимум мне самому было бы приятно смотреть.
+\pagebreak{}
+* Текст заданий
+1. Create tree hierarchy with directory, files and its contents. Use lab0 as tree root in your home directory and following commands for tree creation: mkdir, echo, cat, touch, ls, pwd, cd, more, cp, rm, rmdir, mv.
+#+ATTR_LATEX: :width 250pt :center nil
+file:./1.png
+\small
+1. Set up file and directory permissions chmod, using different approaches.
+   + bibarel2: rw--w-r--
+   + fraxure4: rwxr-x-w--
+   + rhyperior: владелец должен читать, записывать директорию и переходить в нее; группа-владелец должна читать, записывать директорию и переходить в нее; остальные пользователи должны читать, записывать директорию и переходить в нее-
+   + linoone: права 337-
+   + makuhita: владелец должен читать, записывать директорию и переходить в нее; группа-владелец должна записывать директорию и переходить в нее; остальные пользователи должны читать, записывать директорию и переходить в нее-
+   + quagsire: ---rw--w--
+   + haunter2: права 700-
+   + yamask: владелец должен записывать директорию и переходить в нее; группа-владелец должна только переходить в директорию; остальные пользователи должны записывать директорию-
+   + snorunt: r-xrwxrwx-
+   + hippopotas: права 500-
+   + gurdurr: права 640-
+   + bellossom: права 511-
+   + mienshao5: права 640-
+   + nuzleaf7: владелец должен записывать директорию и переходить в нее; группа-владелец должна только переходить в директорию; остальные пользователи должны записывать директорию-
+   + swalot: права 307-
+   + aipom: ---r--r---
+   + ambipom: владелец должен не иметь никаких прав; группа-владелец должна читать и записывать файл; остальные пользователи должны записывать файл-
+   + cyndaquil: владелец должен читать директорию и переходить в нее; группа-владелец должна записывать директорию; остальные пользователи должны читать директорию-
+   + weavile: права 064-
+   + volcarona0: владелец должен не иметь никаких прав; группа-владелец должна читать и записывать файл; остальные пользователи должны записывать файл-
+2. Copy tree parts and create links with cp and ln, as well as with cat and io streams redirection.
+   + скопировать рекурсивно директорию haunter2 в директорию lab0/fraxure4/rhyperior
+   + создать символическую ссылку c именем Copy_52 на директорию fraxure4 в каталоге lab0
+   + cоздать символическую ссылку для файла mienshao5 с именем lab0/nuzleaf7/aipommienshao
+   + объеденить содержимое файлов lab0/nuzleaf7/weavile, lab0/fraxure4/quagsire, в новый файл lab0/volcarona0_66
+   + скопировать содержимое файла mienshao5 в новый файл lab0/haunter2/gurdurrmienshao
+   + скопировать файл volcarona0 в директорию lab0/nuzleaf7/cyndaquil
+   + cоздать жесткую ссылку для файла volcarona0 с именем lab0/nuzleaf7/weavilevolcarona
+3. Using cat, wc, ls, head, tail, echo, sort, grep looks up and filters directory, files and data in it.
+   + Подсчитать количество строк содержимого файлов в директории nuzleaf7, отсортировать вывод по увеличению количества, ошибки доступа не подавлять и не перенаправлять
+   + Вывести список имен и атрибутов файлов в директории fraxure4, список отсортировать по убыванию размера, подавить вывод ошибок доступа
+   + Рекурсивно вывести содержимое файлов с номерами строк из директории lab0, имя которых начинается на 'a', строки отсортировать по имени a->z, ошибки доступа не подавлять и не перенаправлять
+   + Подсчитать количество строк содержимого файла volcarona0, результат записать в тот-же файл, ошибки доступа перенаправить в файл в директории /tmp
+   + Вывести три последних элемента рекурсивного списка имен и атрибутов файлов в директории lab0, содержащих строку "qu", список отсортировать по убыванию размера, подавить вывод ошибок доступа
+   + Вывести содержимое файла mienshao5, строки отсортировать по имени a->z, добавить вывод ошибок доступа в стандартный поток вывода
+4. Remove files using rm and rmdir according following:
+   + Удалить файл volcarona0
+   + Удалить файл lab0/nuzleaf7/weavile
+   + удалить символические ссылки Copy_*
+   + удалить жесткие ссылки lab0/nuzleaf7/weavilevolcaro*
+   + Удалить директорию nuzleaf7
+   + Удалить директорию lab0/haunter2/hippopotas

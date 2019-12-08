@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: find & echo
+# key: fecho
+# --
+# $1:
+find -type f -name \"$1\" -exec bash -c 'echo \
+\"$2\"\
+> \{\}' \\;
+

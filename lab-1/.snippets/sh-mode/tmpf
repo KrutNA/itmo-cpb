@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: files list
+# key: tmpf
+# --
+${1:`(yas-choose-value '("bibarel2" "quagsire" "gurdurr" "mienshao5" "aipom" "ambipom" "weavile" "volcarona0"))`}$0

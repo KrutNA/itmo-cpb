@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: find & chmod
+# key: fchmod
+# --
+# $1:
+find -name \"$1\" -exec chmod $2 \{\} \\;
+
