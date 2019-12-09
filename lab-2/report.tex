@@ -1,0 +1,195 @@
+% Created 2019-12-09 Пн 03:02
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\usepackage[T2A]{fontenc}
+\usepackage[a4paper,left=3cm,top=2cm,right=1.5cm,bottom=2cm,marginparsep=7pt,marginparwidth=.6in]{geometry}
+\usepackage{cmap}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{polyglossia}
+\setdefaultlanguage{russian} \setotherlanguage{english}
+\setmainfont{Liberation Serif}
+\setsansfont{Liberation Sans}
+\setmonofont[Contextuals=Alternate,Ligatures={TeX}]{Fira Code Regular}
+\usepackage{array}\usepackage{tabularx}
+\author{Krutko Nikita / KrutNA}
+\date{\today}
+\title{}
+\hypersetup{
+ pdfauthor={Krutko Nikita / KrutNA},
+ pdftitle={},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 26.1 (Org mode 9.1.9)}, 
+ pdflang={Russian}}
+\begin{document}
+
+\newcolumntype{V}[1]{>{\centering}m{\dimexpr #1\textwidth - 2\tabcolsep-1.3333333\arrayrulewidth}}
+\large
+\thispagestyle{empty}
+\begin{center}
+\textbf{Национальный Исследовательский Университет ИТМО}\\
+\textbf{Факультет Программной Инженерии и Компьютерной Техники}\\
+\end{center}
+\vspace{2em}
+\begin{center}
+\includegraphics[width=120pt]{itmo-logo.png}
+\end{center}
+\LARGE
+\vspace{5em}
+\begin{center}
+\textbf{Вариант №-7}\\
+\textbf{Лабораторная работа №2}\\
+\Large
+\textbf{по дисциплине}\\
+\LARGE
+\textbf{\emph{'Основы профессиональной деятельности'}}\\
+\end{center}
+\vspace{11em}
+\large
+\begin{flushright}
+\textbf{Выполнил:}\\
+\textbf{Студент группы P3113}\\
+\textbf{\emph{Крутько Никита} : 242570}\\
+\textbf{Преподаватель:}\\
+\textbf{\emph{Перминов Илья Валентинович}}\\
+\end{flushright}
+\vspace{4em}
+\large
+\begin{center}
+\textbf{Санкт-Петербург 2019 г.}
+\end{center}
+\pagebreak{}
+\setcounter{tocdepth}{2}
+\tableofcontents
+\vspace{2em}
+\normalsize
+\section{Задание}
+\label{sec:org498addd}
+По выданному преподавателем варианту определить функцию, вычисляемую программой, область представления и область допустимых значений исходных данных и результата, выполнить трассировку программы, предложить вариант с меньшим числом команд. При выполнении работы представлять результат и все операнды арифметических операций знаковыми числами, а логических операций набором из шестнадцати логических значений.
+
+\section{Текст исходной программы}
+\label{sec:org8cc7921}
+\begin{center}
+\begin{tabular}{|c|c|c|l|}
+\hline
+Адрес & Значение & Мнемоника & Комментарий\\
+\hline
+041 & A04B & LD 04B & Записать в AC значение по адресу O4B (AC = 0200)\\
+042 & 0100 & HLT & Отключение ТГ, переход в пультовый режим\\
+\hline
+043 & A04B & LD 04B & Записать в AC значение по адресу 04B (AC = 0200)\\
+044 & 2042 & AND 042 & Выполнить побитовое умножение занчения в AC с ячейкой 042\\
+045 & E04D & ST 04D & Записать значение из AC в ячейку 04D  (*04D = 0000)\\
+046 & 0200 & CLA & Очистить аккумулятор (AC = 0000)\\
+047 & 4041 & ADD 041 & Прибавить к AC значение в ячейке 041 (AC = A04B)\\
+048 & 604D & SUB 04D & Вычесть из AC значение в ячейке 04D (AC = A04B)\\
+049 & E04C & ST 04C & Записать значение из AC в ячейку 04C (*04C = A04B)\\
+04A & 0100 & HLT & Отключение ТГ, переход в пультовый режим\\
+04B & 0200 & CLA & Очистить AC\\
+04C & A04B & LD 04B & (045: A04B) Записать в AC значение по адресу 04B (AC = 0200)\\
+04D & 4041 & NOP & (049: 0000) Не делать ничего\\
+\hline
+\end{tabular}
+\end{center}
+
+\section{Описание программы}
+\label{sec:org8b50844}
+\subsection{Назначение программы и реализуемая ею функция}
+\label{sec:org3aaa963}
+Выполенение нижеописанной функции с сохранением промежуточного значения побитовой операции и результата в ячейки 04D и 04C соответсвенно.\\
+\(\text{*04C} = \text{*041} - \text{*04D} = \text{*041} - \left(\text{*04B} \mathbin{\land} \text{*042}\right)\)
+
+\subsection{Область представления}
+\label{sec:org8e205cb}
+*04C, *041, *04B, *04A - знаковые 16-рахрядные числа (1 бит знак, 15 бит - значимые разряды).\\
+*04D - 16 бит, результат побитового логического "\emph{AND}".
+
+\subsection{Область допустимых значений исходных данных}
+\label{sec:orgb485c8c}
+*041, *04B, *042: \(-2^{16-1}\)..\(2^{16-1}-1\)
+\(\Rightarrow\) \(-2^{15}\)..\(2^{15}-1\)
+\(\Rightarrow\) \(-32768\)..\(-32767\)\\
+*04D: \(0\)..\(2^{16}-1\)
+\(\Rightarrow\) \(0\)..\(2^{16}-1\)
+\(\Rightarrow\) \(0\)..\(65535\)
+
+\subsection{Область допустимых значений результата}
+\label{sec:org8bfa7f5}
+*04C: \(-2^{16-1}\)..\(2^{16-1}-1\)
+\(\Rightarrow\) \(-2^{15}\)..\(2^{15}-1\)
+\(\Rightarrow\) \(-32768\)..\(-32767\)
+
+\subsection{Расположение в памяти ЭВМ программы, исходных данных и результатов}
+\label{sec:orgadd9fab}
+Ячейки 041, 042, 04B: исходные данные.\\
+Ячейка 04D - промежуточное значение.\\
+Ячейка 04C - результат выполнения.\\
+Ячейки 043..04A: операции программы. 
+
+\subsection{Адреса первой и последней выполняемых команд программы}
+\label{sec:org6547f23}
+043 - адрес точки входа в программу.
+04A - адрес пооследней операции программы.
+\section{Таблица трассировки}
+\label{sec:org74338f0}
+\footnotesize
+\begin{center}
+  \begin{tabularx}{\textwidth}{|V{0.08}|V{0.08}|V{0.07}|V{0.07}|V{0.07}|V{0.07}|V{0.07}|V{0.07}|V{0.07}|V{0.08}|V{0.13}|V{0.13}|}
+    \hline
+    \multicolumn{2}{|V{0.16}|}{\textbf{Выполненная команда}}
+    & \multicolumn{8}{V{0.58}}{\textbf{Содержимое регистров процессора после выполнения команды}}
+    & \multicolumn{2}{|V{0.24}|}{\textbf{Ячейка, содежимое которой изменилось после выполнения команды}} \cr \hline
+    Адрес& Код & IP  &  CR  & AR  &  DR  & SP  &  BR  &  AC  & NZVC &Адрес& Новый код\cr\hline
+    043 & A04B & 044 & A04B & 04B & 0200 & 000 & 0043 & 0200 & 0001 &&\cr\hline
+    044 & 2042 & 045 & 2042 & 042 & 0100 & 000 & 0044 & 0000 & 0101 &&\cr\hline
+    045 & E04D & 046 & E04D & 04D & 0000 & 000 & 0045 & 0000 & 0101 & 04D & 0000\cr\hline
+    046 & 0200 & 047 & 0200 & 046 & 0200 & 000 & 0046 & 0000 & 0101 &&\cr\hline
+    047 & 4041 & 048 & 4041 & 041 & A04B & 000 & 0047 & A04B & 1000 &&\cr\hline
+    048 & 604D & 049 & 604D & 04D & 0000 & 000 & 0048 & A04B & 1001 &&\cr\hline
+    049 & E04C & 04A & E04C & 04C & A04B & 000 & 0049 & A04B & 1001 & 04C & A04D\cr\hline
+    04A & 0100 & 04B & 0100 & 04A & 0100 & 000 & 004A & A04B & 1001 &&\cr\hline 
+  \end{tabularx}
+\end{center}
+\normalsize
+\section{Вариант программы с меньшим числом команд}
+\label{sec:org0f19ad0}
+\begin{center}
+\begin{tabular}{|c|c|c|l|}
+\hline
+Адрес & Значение & Мнемоника & Комментарий\\
+\hline
+041 & A04B & LD 04B & Записать в AC значение по адресу O4B (AC = 0200)\\
+042 & 0100 & HLT & Отключение ТГ, переход в пультовый режим\\
+\hline
+043 & A04B & LD 04B & Записать в AC значение по адресу 04B (AC = 0200)\\
+044 & 2042 & AND 042 & Выполнить побитовое умножение занчения в AC с ячейкой 042\\
+045 & E04D & ST 04D & Записать значение из AC в ячейку 04D  (*04D = 0000)\\
+046 & A041 & LD 041 & Записать в AC значение из ячейки 041 (AC = A04B)\\
+047 & 604D & SUB 04D & Вычесть из AC значение в ячейке 04D (AC = A04B)\\
+048 & E04C & ST 04C & Записать значение из AC в ячейку 04C (*04C = A04B)\\
+049 & 0100 & HLT & Отключение ТГ, переход в пультовый режим\\
+04B & 0200 & CLA & Очистить AC\\
+04C & A04B & LD 04B & (045: A04B) Записать в AC значение по адресу 04B (AC = 0200)\\
+04D & 4041 & NOP & (049: 0000) Не делать ничего\\
+\hline
+\end{tabular}
+\end{center}
+
+\section{Вывод}
+\label{sec:org7d63bec}
+В ходе лабораторной работы я познакомился с внутренним устройстом БЭВМ-NG, её командами, научился вводить в неё данные и выполнять программы, выполнять трассировку, аналищировать по результатам этого сокращать программы.
+\end{document}
